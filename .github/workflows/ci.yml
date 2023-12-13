@@ -32,7 +32,7 @@ jobs:
 
       run: mvn -B compile --file pom.xml
 
-verify-and-package:
+  verify:
 
     needs: build
 
@@ -56,30 +56,4 @@ verify-and-package:
 
       run: mvn -B verify --file pom.xml
 
-    -
-
-        name: Login to GHCR.IO
-
-        uses: docker/login-action@v2
-
-        with:
-
-          registry: ghcr.io
-
-          username: "pablolozanoa"
-
-          password: ${{ secrets.PAT }}
-
-    -
-
-        name: Build and push
-
-        uses: docker/build-push-action@v3
-
-        with:
-
-          context: .
-
-          push: true
-
-          tags: ghcr.io/pablolozanoa/tos:latest
+    - run: ls ${GITHUB_WORKSPACE}/target/*.jar
