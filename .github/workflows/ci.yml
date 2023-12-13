@@ -66,7 +66,7 @@ verify-and-package:
 
           registry: ghcr.io
 
-          username: "yourGitHubUsernameHere"
+          username: "pablolozanoa"
 
           password: ${{ secrets.PAT }}
 
@@ -82,4 +82,4 @@ verify-and-package:
 
           push: true
 
-          tags: ghcr.io/yourGitHubUsernameHere/tos:latest
+          tags: ghcr.io/pablolozanoa/tos:latest
